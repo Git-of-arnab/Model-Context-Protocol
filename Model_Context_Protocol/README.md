@@ -2,6 +2,7 @@
 
 This repository showcases various applications and the usage of the Model Context Protocol (MCP). It includes client-side examples demonstrating how to utilize tools exposed by an MCP server, including agent-based and conversational agent implementations.
 
+![MCP and Agent interface architecture for this project](mcp_agent_hld.png)
 ---
 
 ## 🚀 Overview
@@ -65,8 +66,8 @@ uv --version
 1. **Clone the repository:**
 
    ```bash
-   git clone <your-repository-url>
-   cd <your-repository-name>
+   git clone [<your-repository-url>](https://github.com/Git-of-arnab/Model-Context-Protocol.git)
+   cd Model-Context-Protocol
    ```
 2. **Create a virtual environment (recommended):**
    ```bash
