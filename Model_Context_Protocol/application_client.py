@@ -7,12 +7,13 @@ from mcp.client.stdio import stdio_client
 
 import boto3
 from dotenv import load_dotenv
+import os
 
 load_dotenv()  # load environment variables from .env
 
-session = boto3.Session(aws_access_key_id='AKIA5FTZBAU7TV43RUUP',
-    aws_secret_access_key='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',
-    region_name='us-east-1')
+session = boto3.Session(aws_access_key_id=os.getenv('ACCESS_KEY_ID'),
+    aws_secret_access_key=os.getenv('SECRET_KEY'),
+    region_name=os.getenv('AWS_REGION'))
 
 class MCPClient:
     def __init__(self):
