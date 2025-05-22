@@ -4,6 +4,10 @@ from mcp.server.fastmcp import FastMCP
 from tavily import TavilyClient
 import requests
 from pprint import pprint
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 # Initialize FastMCP server
 mcp = FastMCP("weather")
 
@@ -101,7 +105,7 @@ def search_external_info(query:str)->list:
     Args:
     query: The search phrase
     '''
-    tavily_client = TavilyClient(api_key="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")
+    tavily_client = TavilyClient(api_key=os.getenv('TAVILY_API_KEY'))
     search_results = tavily_client.search(query,max_results=2)
     return search_results
 
@@ -118,7 +122,7 @@ async def nearest_place_finder_agent(prompt:str) -> list:
     headers = {
     "Content-Type": "application/json",
     "X-Goog-FieldMask": "places.displayName,places.location,places.id,places.formattedAddress,places.currentOpeningHours,places.priceLevel,places.rating",
-    "X-Goog-Api-Key": "AIzaSyBFUhKxYJT_6mBKUF6ntcIdzPIivvi5-Jw"
+    "X-Goog-Api-Key": os.getenv('GOOGLE_API_KEY')
     }
 
     data = {
@@ -165,7 +169,7 @@ def navigation_agent(prompt:str) -> dict:
     headers = {
     "Content-Type": "application/json",
     "X-Goog-FieldMask": "places.displayName,places.id,places.formattedAddress,places.googleMapsLinks,places.location",
-    "X-Goog-Api-Key": "AIzaSyBFUhKxYJT_6mBKUF6ntcIdzPIivvi5-Jw"
+    "X-Goog-Api-Key": os.getenv('GOOGLE_API_KEY')
     }
 
     data = {
@@ -188,7 +192,7 @@ def navigation_agent(prompt:str) -> dict:
     dest_lat = response.json()['places'][0]['location']['latitude']
     dest_lng = response.json()['places'][0]['location']['longitude']
 
-    google_navigation_url = f"https://www.google.com/maps/dir/?api=1&origin={curr_lat},{curr_lng}&destination={dest_lat},{dest_lng}&travelmode=driving&key=AIzaSyBFUhKxYJT_6mBKUF6ntcIdzPIivvi5-Jw"
+    google_navigation_url = f"https://www.google.com/maps/dir/?api=1&origin={curr_lat},{curr_lng}&destination={dest_lat},{dest_lng}&travelmode=driving&key=os.getenv('GOOGLE_API_KEY')"
     
     # webbrowser.open_new(google_navigation_url)
 
