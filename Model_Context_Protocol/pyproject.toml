@@ -1,7 +1,10 @@
 [project]
 name = "model-context-protocol"
 version = "0.1.0"
-description = "Add your description here"
+description = """This repository demonstrates how to:
+- Spin up an MCP server exposing a suite of “tools” (search, Google navigation, weather forecast & alerts, nearest-place lookup).  
+- Write thin‐client Python applications that call those tools directly.  
+- Build agent-based clients (simple agents and conversational agents) that choose and invoke tools programmatically—complete with structured JSON outputs via prompt engineering."""
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
