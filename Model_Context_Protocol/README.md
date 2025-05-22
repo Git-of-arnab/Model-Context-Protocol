@@ -11,6 +11,29 @@ The Model Context Protocol (MCP) is designed to facilitate communication and int
 
 ---
 
+## Features
+
+- **MCP Server** (`mcp_server.py`):  
+  - Search (web, news, etc.)  
+  - Google-based navigation  
+  - Weather forecast & alerts  
+  - Nearest-place search  
+
+- **Clients**:  
+  - **`application_client.py`**: Straightforward client calls.  
+  - **`application_client_with_agents.py`**: Agent wrapper that selects tools automatically.  
+  - **`application_client_with_conversational_agents.py`**: Conversational agent demonstrating multi-turn chat and structured JSON responses via prompt-engineering.
+
+---
+
+## Prerequisites
+
+- Python 3.10+  
+- An API key or credentials for any external services (e.g., Google Places, weather API) and AWS Bedrock Access Keys
+- Network access to reach external APIs  
+
+---
+
 ## 📂 Files in this Repository
 
 Here's a breakdown of the key files in this project:
@@ -66,7 +89,7 @@ uv --version
 1. **Clone the repository:**
 
    ```bash
-   git clone [<your-repository-url>](https://github.com/Git-of-arnab/Model-Context-Protocol.git)
+   git clone https://github.com/Git-of-arnab/Model-Context-Protocol.git
    cd Model-Context-Protocol
    ```
 2. **Create a virtual environment (recommended):**
