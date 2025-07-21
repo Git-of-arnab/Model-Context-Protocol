@@ -122,7 +122,7 @@ async def nearest_place_finder_agent(prompt:str) -> list:
     headers = {
     "Content-Type": "application/json",
     "X-Goog-FieldMask": "places.displayName,places.location,places.id,places.formattedAddress,places.currentOpeningHours,places.priceLevel,places.rating",
-    "X-Goog-Api-Key": os.getenv('GOOGLE_API_KEY')
+    "X-Goog-Api-Key": <'YOUR_GOOGLE_API_KEY'>
     }
 
     data = {
@@ -169,7 +169,7 @@ def navigation_agent(prompt:str) -> dict:
     headers = {
     "Content-Type": "application/json",
     "X-Goog-FieldMask": "places.displayName,places.id,places.formattedAddress,places.googleMapsLinks,places.location",
-    "X-Goog-Api-Key": os.getenv('GOOGLE_API_KEY')
+    "X-Goog-Api-Key": <'YOUR_GOOGLE_API_KEY'>
     }
 
     data = {
@@ -192,7 +192,7 @@ def navigation_agent(prompt:str) -> dict:
     dest_lat = response.json()['places'][0]['location']['latitude']
     dest_lng = response.json()['places'][0]['location']['longitude']
 
-    google_navigation_url = f"https://www.google.com/maps/dir/?api=1&origin={curr_lat},{curr_lng}&destination={dest_lat},{dest_lng}&travelmode=driving&key=os.getenv('GOOGLE_API_KEY')"
+    google_navigation_url = f"https://www.google.com/maps/dir/?api=1&origin={curr_lat},{curr_lng}&destination={dest_lat},{dest_lng}&travelmode=driving&key=<'YOUR_GOOGLE_API_KEY'>"
     
     # webbrowser.open_new(google_navigation_url)
 
