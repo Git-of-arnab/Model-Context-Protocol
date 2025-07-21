@@ -25,8 +25,8 @@ load_dotenv()  # load environment variables from .env
 
 model = ChatBedrockConverse(
     model_id="anthropic.claude-3-5-sonnet-20240620-v1:0",
-    aws_access_key_id='AKIA5FTZBAU7TV43RUUP',
-    aws_secret_access_key='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',
+    aws_access_key_id= os.getnev('AWS_ACCESS_KEY_ID'),
+    aws_secret_access_key= os.getenv('AWS_SECRET_KEY'),
     region_name="us-east-1",
     temperature=0.3
 )
